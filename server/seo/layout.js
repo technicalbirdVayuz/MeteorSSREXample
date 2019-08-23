@@ -1,6 +1,7 @@
 import {SSR , Template } from 'meteor/meteorhacks:ssr';
 
 Meteor.startup(() => {
+	console.log("Startup")
 	SSR.compileTemplate('seoLayout', Assets.getText('layout.html'));
 	Template.seoLayout.helpers({
 	  getDocType: function() {
