@@ -1,11 +1,11 @@
 # Meteor SSR Example
 
-- Flow Router used for CLient Side Routing
- Navigate to Page /newPage to see Flow Router to see Client Side Routing
+Flow Router used for CLient Side Routing
+ - Navigate to Page /newPage to see Flow Router to see Client Side Routing
 
 
-- For SSR
-Navigate to Page /browse/:Anything
+For SSR
+ - Navigate to Page /browse/:Anything
 
 
 
