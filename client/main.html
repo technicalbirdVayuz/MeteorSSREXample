@@ -1,0 +1,368 @@
+<head>
+    <meta charset="utf-8">
+
+    <title>Using Ionic without any frameworks</title>
+
+    <link href="https://unpkg.com/@ionic/core@latest/css/ionic.bundle.css" rel="stylesheet" media="screen">
+    <script src="https://unpkg.com/@ionic/core@latest/dist/ionic.js"></script>
+    <script src="https://unpkg.com/ionicons@latest/dist/ionicons.js"></script>
+    <link async href="https://unpkg.com/ionicons@4.2.0/dist/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://code.ionicframework.com/1.2.4/css/ionic.min.css" rel="stylesheet" />
+    <link href="https://cdn.rawgit.com/xchilenox/ionic-tinder-cards/master/dist/ion-tinder-cards.min.css" rel="stylesheet" />
+    <script src="https://code.ionicframework.com/1.2.4/js/ionic.bundle.min.js"></script>
+    <script src="https://code.ionicframework.com/collide/0.0.4/collide.js"></script>
+    <script src="https://cdn.rawgit.com/xchilenox/ionic-tinder-cards/master/dist/ion-tinder-cards.min.js"></script>
+
+	<script src="/bower_components/collide/collide.js"></script>
+	<script src="/bower_components/ionic-tinder-cards/dist/ion-tinder-cards.min.js">
+		
+	</script>
+</head>
+
+<template name="hello">
+  HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHhh
+  <a href="/page2">Click Me</a>
+  <a href="/info">Info</a>
+  <a href="/card_swipe">Swipeble Cards</a>
+  <a href="/tinder">tinder Cards</a>
+  <button><a  href="/share">Social Share</a></button>
+  <button><a  href="/ionicShare">ionicShare </a></button>
+  <!-- <p>You've pressed the button {{counter}} times.</p> -->
+</template>
+
+<template name="info">
+<style type="text/css">
+/*ion-slides { height: initial; }*/
+/*ion-slides {
+  overflow-y: scroll;
+}
+*/
+  .swiper-slide {
+    overflow-y: hidden !important;
+    display: block;
+    background-color: #435324;
+}
+
+.display_none{  
+    display: none !important;
+}
+</style>
+
+<ion-app>
+	<ion-toolbar id="toolbar1">
+  <ion-buttons slot="secondary">
+    <ion-button>
+      <ion-icon slot="icon-only" name="contact"></ion-icon>
+    </ion-button>
+    <ion-button id="search_icon">
+      <ion-icon slot="icon-only" name="search" ></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="primary">
+    <ion-button color="secondary">
+      <ion-icon slot="icon-only" name="more"></ion-icon>
+    </ion-button>
+  </ion-buttons>
+  <ion-title>Swipe Functionality App</ion-title>
+
+</ion-toolbar>
+  <ion-toolbar id="toolbar2" class="display_none">
+    <ion-searchbar animation></ion-searchbar>
+  </ion-toolbar>
+
+ <ion-content>
+  <ion-refresher slot="fixed" id="refresher">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+      </ion-list>
+</ion-content>
+<!-- 
+ <ion-refresher slot="fixed">
+    <ion-refresher-content
+      pulling-icon="arrow-dropdown"
+      pulling-text="Pull to refresh"
+      refreshing-spinner="circles"
+      refreshing-text="Refreshing...">
+
+  <ion-slides  class="swiper-slide" pager="true">
+  	 {{#each fetch_data}}
+      <ion-slide>
+        <td-cards delegate-handle="cards">
+            <td-card ng-repeat="card in cards" on-destroy="remove($index)" on-transition-left="reject($index)" on-transition-right="like($index)">
+                <span class="no">NOPE</span>
+                <span class="yes">LIKE</span>
+                <img src="{{image}}" width="300" height="300" />
+                <div class="caption">
+                    <h2 class="title">{{name}}, {{age}}</h2>
+                    <p class="description">{{description}}</p>
+                </div>
+            </td-card>
+        </td-cards>
+
+        <td-controls ng-if="cards.length > 0">
+            <td-control-button action="no" icon="ion-close" ng-click="swipeLeft()"></td-control-button>
+            <td-control-button action="yes" icon="ion-heart" ng-click="swipeRight()"></td-control-button>
+        </td-controls>
+      </ion-slide>
+        {{/each}}
+       
+    </ion-slides>
+        </ion-refresher-content>
+    </ion-refresher>
+    <style type="text/css">
+      ion-slides {
+        overflow-y: auto;
+      }
+    </style>
+ -->
+
+</ion-app>
+<!-- <ion-app>
+  <ion-menu side="start" menu-id="first">
+    <ion-header>
+      <ion-toolbar color="primary">
+        <ion-title>Start Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-menu side="start" menu-id="custom" class="my-custom-menu">
+    <ion-header>
+      <ion-toolbar color="tertiary">
+        <ion-title>Custom Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <ion-menu side="end" type="push">
+    <ion-header>
+      <ion-toolbar color="danger">
+        <ion-title>End Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+        <ion-item>Menu Item</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+
+  <div class="ion-page" main>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu - Basic</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content padding>
+      <ion-button expand="block" onclick="openFirst()">Open Start Menu</ion-button>
+      <ion-button expand="block" onclick="openEnd()">Open End Menu</ion-button>
+      <ion-button expand="block" onclick="openCustom()">Open Custom Menu</ion-button>
+    </ion-content>
+  </div>
+
+</ion-app>
+<ion-menu-controller></ion-menu-controller>
+
+<ion-content>
+  <div class="ion-padding">
+    The world is your oyster.
+    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  </div>
+  <ion-button>Go to test page</ion-button>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      <ion-card-title>Card Title</ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content>
+      Keep close to Nature's heart... and break clear away, once in awhile,
+      and climb a mountain or spend a week in the woods. Wash your spirit clean.
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card>
+    <ion-item>
+      <ion-icon name="pin" slot="start"></ion-icon>
+      <ion-label>ion-item in a card, icon left, button right</ion-label>
+      <ion-button fill="outline" slot="end">View</ion-button>
+    </ion-item>
+  
+    <ion-card-content>
+      This is content, without any paragraph or header tags,
+      within an ion-card-content element.
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-card>
+    <ion-item href="#" class="activated">
+      <ion-icon name="wifi" slot="start"></ion-icon>
+      <ion-label>Card Link Item 1 .activated</ion-label>
+    </ion-item>
+  
+    <ion-item href="#">
+      <ion-icon name="wine" slot="start"></ion-icon>
+      <ion-label>Card Link Item 2</ion-label>
+    </ion-item>
+  
+    <ion-item class="activated">
+      <ion-icon name="warning" slot="start"></ion-icon>
+      <ion-label>Card Button Item 1 .activated</ion-label>
+    </ion-item>
+  
+    <ion-item>
+      <ion-icon name="walk" slot="start"></ion-icon>
+      <ion-label>Card Button Item 2</ion-label>
+    </ion-item>
+  </ion-card>
+  <ion-chip>
+    <ion-label>Default</ion-label>
+  </ion-chip>
+  
+  <ion-chip>
+    <ion-label color="secondary">Secondary Label</ion-label>
+  </ion-chip>
+  
+  <ion-chip color="secondary">
+    <ion-label color="dark">Secondary w/ Dark label</ion-label>
+  </ion-chip> -->
+  
+  <!-- Default Checkbox -->
+<!-- <ion-checkbox></ion-checkbox> -->
+
+<!-- Disabled Checkbox -->
+<!-- <ion-checkbox disabled="true"></ion-checkbox> -->
+
+<!-- Checked Checkbox -->
+<!-- <ion-checkbox checked="true"></ion-checkbox> -->
+
+<!-- Checkbox Colors -->
+<!-- <ion-checkbox color="primary"></ion-checkbox> -->
+<!-- <ion-checkbox color="secondary"></ion-checkbox> -->
+<!-- <ion-checkbox color="danger"></ion-checkbox> -->
+<!-- <ion-checkbox color="light"></ion-checkbox> -->
+<!-- <ion-checkbox color="dark"></ion-checkbox> -->
+
+<!-- Checkboxes in a List -->
+<!-- <ion-list> -->
+<!-- {{#each loop}} -->
+  <!-- <ion-item> -->
+    <!-- <ion-label>{{user_name}}</ion-label> -->
+    <!-- <ion-checkbox slot="end" ></ion-checkbox> -->
+  <!-- </ion-item> -->
+  <!-- {{/each}} -->
+<!-- </ion-list> -->
+<!-- </ion-content> -->
+<!-- </ion-content> -->
+<script type="text/javascript">
+  function toggleSearchbar(){
+      if($("#toolbar2").hasClass("display_none")){
+        $("#toolbar2").removeClass("display_none");
+        $("#toolbar1").addClass("display_none");
+      }else{
+        $("#toolbar2").addClass("display_none");
+        $("#toolbar1").removeClass("display_none");
+      }
+    }
+    $("#search_icon").click(function(){
+     alert("cap");
+      toggleSearchbar();
+    })
+</script>
+<script type="text/javascript">
+//  const menuCtrl = document.querySelector('ion-menu-controller');
+
+// function openFirst() {
+//   menuCtrl.enable(true, 'first');
+//   menuCtrl.open('first');
+// }
+
+// function openEnd() {
+//   menuCtrl.open('end');
+// }
+
+// function openCustom() {
+//   menuCtrl.enable(true, 'custom');
+//   menuCtrl.open('custom');
+// }
+// var slides = document.querySelector('ion-slides');
+
+// // Optional parameters to pass to the swiper instance. See http://idangero.us/swiper/api/ for valid options.
+// slides.options = {
+//   initialSlide: 0,
+//   direction: 'horizontal',
+//   speed: 400
+// }
+    const refresher = document.getElementById('refresher');
+
+  refresher.addEventListener('ionRefresh', () => {
+      setTimeout(() => {
+alert("Refresh")
+        refresher.complete();
+      }, 2000);
+})
+
+
+</script>
+</template>
+
+<template name="page2">
+    <body>
+    <ion-header-bar class="bar-calm">
+        <h1 class="title">Ionic Tinder Cards</h1>
+    </ion-header-bar>
+    <ion-content scroll="false">
+
+        <!-- <td-pulse ng-if="pulse">
+            <img src="http://api.randomuser.me/portraits/med/women/35.jpg" />
+        </td-pulse> -->
+       {{#each fetch_data}}
+         <td-cards delegate-handle="cards">
+            <td-card ng-repeat="card in cards" on-destroy="remove($index)" on-transition-left="reject($index)" on-transition-right="like($index)">
+                <span class="no">NOPE</span>
+                <span class="yes">LIKE</span>
+                <img src="{{image}}" width="300" height="300" />
+                <div class="caption">
+                    <h2 class="title">{{name}}, {{age}}</h2>
+                    <p class="description">{{description}}</p>
+                </div>
+            </td-card>
+        </td-cards>
+
+        <td-controls ng-if="cards.length > 0">
+            <td-control-button action="no" icon="ion-close" ng-click="swipeLeft()"></td-control-button>
+            <td-control-button action="yes" icon="ion-heart" ng-click="swipeRight()"></td-control-button>
+        </td-controls>
+       {{/each}}
+    </ion-content>
+    
+</body>
+</template>
