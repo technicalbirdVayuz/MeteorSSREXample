@@ -16,3 +16,8 @@ Source: https://forums.meteor.com/t/facebook-share-setup/12980/7
 
 
 DEMO: https://ionicmeteor.herokuapp.com/
+
+Current Issue:
+
+
+The Page you want to share cannot have the code inside the client folder. It needs to be in the private folder and must be in html not in Blaze. Also, would be advisable if it have non reactive content in that page. 
