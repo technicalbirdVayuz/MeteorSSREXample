@@ -13,3 +13,6 @@ Hope it Helps
 
 
 Source: https://forums.meteor.com/t/facebook-share-setup/12980/7
+
+
+DEMO: https://ionicmeteor.herokuapp.com/
